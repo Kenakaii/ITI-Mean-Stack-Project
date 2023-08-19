@@ -1,0 +1,9 @@
+.form-control::placeholder
+{
+    color: gray;
+}
+
+::ng-deep .mat-paginator-outer-container
+{
+    color:white !important;
+}

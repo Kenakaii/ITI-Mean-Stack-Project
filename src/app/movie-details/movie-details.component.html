@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body class="bg-dark">
+        <div class="container" style="margin-top: 100px; border: 2px gray solid; padding: 25px; border-radius: 25px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <img [src]="file+viewedMovie.poster" style="width: 100%;">
+                </div>
+                <div class="text-white col-md-8 align-self-center">
+                    <h1>{{viewedMovie.name}}</h1>
+                    <!-- <p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p> -->
+                    <!-- <p class="review">Rating	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;  {{viewedMovie.vote_average}}</p> -->
+                    <p class="review reviewgo">Genre	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp; {{viewedMovie.genre}}</p>
+                    <p class="review">Release Date &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; {{viewedMovie.date}}</p>
+                    <p class="special">{{viewedMovie.description}}</p>
+                    <button class="btn btn-primary">Watch Now!</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
