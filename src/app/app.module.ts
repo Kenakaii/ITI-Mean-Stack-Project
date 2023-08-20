@@ -11,7 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { MovieCartComponent } from './movie-cart/movie-cart.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http'
     ProductsComponent,
     FooterComponent,
     MovieDetailsComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    MovieCartComponent
   ],
   imports: [
     BrowserModule,

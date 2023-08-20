@@ -3,6 +3,15 @@ var app = express();
 var cors = require('cors');
 var mongoose = require("mongoose");
 var Movie = require("./models/movie");
+var User = require("./models/user");
+const user = require("./models/user");
+
+// for dev purposes initially
+var currentUser={
+  _id:'64e22a67896cf3c54be9dfb5',
+  username:'abood',
+  email:'abood4@gmail.com',
+}
 
 // Connect to database
 mongoose
@@ -66,7 +75,7 @@ app.get("/products", function (req, res)
     .catch(function (err)
     {
       console.log("Error");
-    });
+    })
 });
 
 //  /products/:id (get) to get a product by ID
@@ -75,54 +84,171 @@ app.get("/products/:id", function (req, res)
 {
   var productId = req.params.id;
   Movie.findOne({ id: productId })
-    .then(function (singleProduct)
+    .then(function (specificMovie)
     {
-      if (!singleProduct)
+      if (!specificMovie)
       {
         res.send({
-          message: "No Product Founded with this id",
+          message: "No Movie found with this id",
         });
       }
       else
       {
-        res.send(singleProduct);
+        res.send(specificMovie);
       }
     })
     .catch(function (err)
     {
       console.log(`Error ${err}`);
-    });
+    })
 });
 
 // /addProduct (post) to add a new product
 
 app.post("/addProduct", function (req, res)
 {
-  var newProductData = req.body;
-  console.log(req.body);
-  let newProduct = new Movie({
-    id: newProductData.id,
-    title: newProductData.title,
-    price: newProductData.price,
-    description: newProductData.description,
-    category: newProductData.category,
-    image: newProductData.image,
-    rating: {
-      rate: newProductData.reatingCount,
-      count: 120,
-    },
+  var newmovieData = req.body;
+  // console.log(req.body);
+  let newMovie = new Movie({
+    id: newmovieData.id,
+    name: newmovieData.name,
+    genre: newmovieData.genre,
+    poster: newmovieData.poster,
+    date: newmovieData.date,
+    description: newmovieData.description,
+    show: newmovieData.show,
+    price: newmovieData.price,
+    quantity: newmovieData.quantity,
+    available: newmovieData.available
   });
 
-  newProduct.save()
+  newMovie.save()
     .then(function (data)
     {
-      console.log("product added!");
-      console.log(data);
+      console.log("new movie added!");
+      // console.log(data);
     })
     .catch(function (err)
     {
       console.log("Error");
+    })
+});
+
+// /addUser (post) to add new user
+
+app.post('/addUser', function(req, res)
+{
+  var userdata = req.body;
+  var newUser = new User({
+    username: userdata.username,
+    email: userdata.email,
+    cart: {
+      movies:[]
+    }
+  });
+
+  newUser.save()
+  .then(function(newuser)
+  {
+    console.log(newuser);
+    res.json({
+      message:'User created successfully',
     });
+  })
+  .catch(function(err)
+  {
+    console.log("err");
+  })
+});
+
+// /getCart (get) to get all movies in cart
+
+app.get('/getCart', function(req, res)
+{
+  let userInfo;
+  User.findById({_id:currentUser._id})
+  .then(function(user)
+  {
+    userInfo = user;
+
+    let cartmoviesIds=user.cart.movies.map(function(movie)
+    {
+      return movie.movieId;
+    });
+    // console.log(cartmoviesIds);
+
+    return Movie.find({ _id: { $in: cartmoviesIds } });
+  })
+  .then(function(retrievedMovies)
+  {
+    // console.log(retrievedMovies);
+    // console.log(userInfo);
+    var movies = retrievedMovies.map(function(movie)
+    {
+      let index = userInfo.cart.movies.findIndex(function(singlemovie)
+      {
+        return singlemovie.movieId.toString() == movie._id.toString();
+      });
+      // console.log(index);
+      console.log(userInfo.cart.movies[index].quantity);
+      return {
+        movieInfo: movie,
+        quantity: userInfo.cart.movies[index].quantity,
+      };
+    });
+    res.send(movies);
+  })
+  .catch(function(err)
+  {
+    console.log(err);
+  })
+});
+
+// /addtoCart (post) to add movie blu-ray to cart
+
+app.post('/addtoCart',function(req, res)
+{
+  var cartmovieId=req.body.movieId;
+  console.log(cartmovieId);
+
+  User.findById({_id:currentUser._id})
+  .then(function(user)
+  {
+    let newuserCart = [...user.cart.movies];
+    console.log(newuserCart);
+    
+    var cartmovieIndex=user.cart.movies.findIndex(function(cartmovie)
+    {
+      return cartmovie.movieId.toString() == cartmovieId.toString();
+    });
+    console.log(cartmovieIndex);
+
+    if(cartmovieIndex >= 0) //already in cart
+    {
+      newquantity = user.cart.movies[cartmovieIndex].quantity + 1;
+      newuserCart[cartmovieIndex].quantity = newquantity;
+    }
+    else //wasn't in cart
+    {
+      newuserCart.push({
+        movieId:new mongoose.Types.ObjectId(cartmovieId),
+        quantity:1
+      });
+    }
+
+    let userCart = {
+      movies:newuserCart
+    };
+    return User.updateOne({_id:currentUser._id}, {$set:{cart:userCart}});
+  })
+  .then(function(updatedUser)
+  {
+    console.log(updatedUser)
+  })
+  .catch(function(err)
+  {
+    console.log('error in addtoCart');
+  })
 });
 
 app.listen(3000, function ()

@@ -47,19 +47,14 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  OrderMovie(name:string)
+  addtoCart(movie:IMovie)
   {
-    for(let movie of this.AllMovies)
-    {
-      if(name === movie.name)
+    this.MovieService.addtoCart(movie).subscribe({
+      next:(apiData)=>
       {
-        movie.quantity--;
+        console.log(apiData);
       }
-      if(movie.quantity === 0)
-      {
-        movie.available = false;
-      }
-    }
+    });
   }
 
   Filter()

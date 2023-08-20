@@ -6,6 +6,7 @@
       "poster":"Fridaythe13thMovie.jpg",
       "date":"May 9, 1980",
       "description":"The franchise mainly focuses on the fictional character Jason Voorhees, who was thought to have drowned as a boy at Camp Crystal Lake due to the negligence of the camp staff. Decades later, the lake is rumored to be 'cursed'and is the setting for a series of mass murders.",
+      "price":4.99,
       "quantity":0,
       "available":false
    },
@@ -16,6 +17,7 @@
       "poster":"HomealoneMovie.jpg",
       "date":"July 22, 1991",
       "description":"An eight-year-old troublemaker, mistakenly left home alone, must defend his home against a pair of burglars on Christmas eve.",
+      "price":4.99,
       "quantity":1,
       "available":true
    },
@@ -26,6 +28,7 @@
       "poster":"JohnwickMovie.jpg",
       "date":"October 24, 2014",
       "description":"John Wick is a retired assassin who returns back to his old ways after a group of Russian gangsters steal his car and kill a puppy which was gifted to him by his late wife Helen. The film was developed in 2012, where principal photography began September 25, 2013 and wrapped on December 20, 2013.",
+      "price":7.99,
       "quantity":3,
       "available":true
    },
@@ -36,6 +39,7 @@
       "poster":"ItMovie.jpg",
       "date":"September 8, 2017",
       "description":"In the summer of 1989, a group of bullied kids band together to destroy a shape-shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town. When young children in the little town Derry, Maine goes missing a group of seven kids find out that the killer is not a man.",
+      "price":8.99,
       "quantity":5,
       "available":true
    },
@@ -46,6 +50,7 @@
       "poster":"ThemaskMovie.jpg",
       "date":"July 28, 1994",
       "description":"Carrey plays Stanley Ipkiss, an ordinary man who finds a magical wooden green mask that transforms him into the Mask, a green-faced troublemaker with the ability to animate and alter himself and his surroundings at will.",
+      "price":5.99,
       "quantity":0,
       "available":false
    },
@@ -56,6 +61,7 @@
       "poster":"InterstellarMovie.jpg",
       "date":"November 7, 2014",
       "description":"In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home.",
+      "price":9.99,
       "quantity":10,
       "available":true
    },
@@ -66,6 +72,7 @@
       "poster":"ThedarkknightMovie.jpg",
       "date":"July 23, 2008",
       "description":"With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.",
+      "price":7.99,
       "quantity":7,
       "available":true
    },
@@ -76,6 +83,7 @@
       "poster":"SpectreMovie.jpg",
       "date":"November 5, 2015",
       "description":"A cryptic message from the past leads James Bond (Daniel Craig) to Mexico City and Rome, where he meets the beautiful widow (Monica Bellucci) of an infamous criminal. After infiltrating a secret meeting, 007 uncovers the existence of the sinister organization SPECTRE. Needing the help of the daughter of an old nemesis, he embarks on a mission to find her. As Bond ventures toward the heart of SPECTRE, he discovers a chilling connection between himself and the enemy (Christoph Waltz) he seeks.",
+      "price":8.99,
       "quantity":10,
       "available":true
    },
@@ -86,6 +94,7 @@
       "poster":"TitanicMovie.jpg",
       "date":"December 19, 1997",
       "description":"James Cameron's 'Titanic' is an epic, action-packed romance set against the ill-fated maiden voyage of the R.M.S. Titanic; the pride and joy of the White Star Line and, at the time, the largest moving object ever built. She was the most luxurious liner of her era -- the 'ship of dreams' -- which ultimately carried over 1,500 people to their death in the ice cold waters of the North Atlantic in the early hours of April 15, 1912.",
+      "price":3.99,
       "quantity":10,
       "available":true
    },
@@ -96,6 +105,7 @@
       "poster":"HerMovie.jpg",
       "date":"December 18, 2013",
       "description":"A sensitive and soulful man earns a living by writing personal letters for other people. Left heartbroken after his marriage ends, Theodore (Joaquin Phoenix) becomes fascinated with a new operating system which reportedly develops into an intuitive and unique entity in its own right. He starts the program and meets 'Samantha' (Scarlett Johansson), whose bright voice reveals a sensitive, playful personality. Though 'friends' initially, the relationship soon deepens into love.",
+      "price":4.99,
       "quantity":10,
       "available":true
    },
@@ -106,6 +116,7 @@
       "poster":"MyfairladyMovie.jpg",
       "date":"December 25, 1964",
       "description":"In this beloved musical, pompous phonetics professor Henry Higgins (Rex Harrison) is so sure of his abilities that he takes it upon himself to transform a Cockney working-class girl into someone who can pass for a cultured member of high society. His subject turns out to be the lovely Eliza Doolittle (Audrey Hepburn), who agrees to speech lessons to improve her job prospects. Higgins and Eliza clash, then form an unlikely bond -- one that is threatened by an aristocratic suitor (Jeremy Brett).",
+      "price":2.99,
       "quantity":10,
       "available":true
    },
@@ -116,6 +127,7 @@
       "poster":"WhitemencantjumpMovie.jpg",
       "date":"March 27, 1992",
       "description":"Billy Hoyle (Woody Harrelson) is a white basketball hustler who banks on black players underestimating his skills on the court. When he pulls one over on Sidney Deane (Wesley Snipes), his victim sees a lucrative opportunity, and they become partners in the con game, plying their trade across the courts of Los Angeles. Meanwhile, Billy has to keep one step ahead of mobsters, to whom he owes money, while staying on the good side of his 'Jeopardy!'-obsessed, motormouth wife (Rosie Perez).",
+      "price":4.99,
       "quantity":10,
       "available":true
    }

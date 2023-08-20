@@ -27,7 +27,7 @@
               <h6 class="card-text text-secondary">{{movie.date}}</h6>
               <p class="card-text">{{movie.genre}}</p>
               <button href="#" class="btn btn-primary" [routerLink]="['/Movies',movie.id]">Watch</button>
-              <button href="#" class="btn btn-success mx-2" (click)="OrderMovie(movie.name)" [disabled]="!movie.available">Order Blu-ray</button>
+              <button href="#" class="btn btn-success mx-2" (click)="addtoCart(movie)" [disabled]="!movie.available">Order Blu-ray</button>
               <h4 class="btn text-white disabled mt-2">Stock = {{movie.quantity}}</h4>
             </div>
           </div>

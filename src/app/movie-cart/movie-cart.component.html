@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body class="bg-dark">
+        <div class="container px-3 clearfix" style="margin-top: 100px;">
+            <!-- Shopping cart table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><strong>Shopping Cart</strong></h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered m-0">
+                        <thead>
+                          <tr>
+                            <!-- Set columns width -->
+                            <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+                            <th class="text-center py-3 px-4" style="width: 100px;">Price</th>
+                            <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+                            <th class="text-center py-3 px-4" style="width: 100px;">Total</th>
+                            <th class="text-center align-middle py-3 px-0" style="width: 40px;">Remove item</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let cartitem of cartData">
+                            <td class="p-4">
+                                <div class="media align-items-center">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img [src]="file+cartitem.movieInfo.poster" class="d-block ui-w-40 ui-bordered mr-4" style="float:left; width: 100%" alt="">
+                                        </div>
+                                        <div class="col-md-8 media-body px-5 py-5">
+                                            <h3><a class="link d-block text-dark" [routerLink]="['/Movies',cartitem.movieInfo.id]">{{cartitem.movieInfo.name}}</a></h3>
+                                            <small>
+                                                <span class="text-muted">Genre: </span> {{cartitem.movieInfo.genre}}<br>
+                                                <span class="text-muted">Date: </span> {{cartitem.movieInfo.date}}<br>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center font-weight-semibold align-middle p-4">${{cartitem.movieInfo.price}}</td>
+                            <td class="text-center align-middle p-4">{{cartitem.quantity}}</td>
+                            <td class="text-center font-weight-semibold align-middle p-4">${{cartitem.movieInfo.price * cartitem.quantity}}</td>
+                            <td class="text-center align-middle px-4"><a class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">Remove</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div class="card-footer pt-2 d-inline-flex" style="height: 75px;">
+                    <button type="button" class="btn btn-lg btn-primary md-btn-flat" style="margin-right: 15px;" [routerLink]="['/Home']">Back to shopping</button>
+                    <button type="button" class="btn btn-lg btn-success">Checkout</button>
+                    <div class="pt-2" style="font-size: 25px; right:25px; position: absolute;">Total: <strong>${{totalprice}}</strong></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

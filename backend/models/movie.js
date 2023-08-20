@@ -7,6 +7,7 @@ let mongooseSchema = mongoose.Schema({
   date: String,
   description: String,
   show: Boolean,
+  price:Number,
   quantity: Number,
   available: Boolean
 });
