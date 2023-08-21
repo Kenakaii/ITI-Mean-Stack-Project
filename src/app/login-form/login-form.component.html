@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+        <title>Login page</title>
+</head>
+<body class="bg-dark">
+<div class="signup-form" style="margin-top: 100px;">
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+		<h2>Log In</h2>
+		<hr style="height:2px; background-color:#3d3a3a;">
+        <div class="form-group">
+        	<input type="email" ngModel class="form-control" name="userEmail" placeholder="Email" #userEmailInput="ngModel" required email />
+            <span class="text-danger" *ngIf="userEmailInput.invalid">Invalid Email Format</span><br>
+        </div>
+		<div class="form-group">
+            <input type="password" ngModel class="form-control" name="userPassword" placeholder="Password" #userPasswordInput="ngModel" required />
+            <span class="text-danger" *ngIf="userPasswordInput.invalid">Password Required</span><br>
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="userEmailInput.invalid || userPasswordInput.invalid">Log In</button>
+        </div>
+    </form>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length!=0">{{errorMsg}}</div>
+	<div class="hint-text">Don't have an account? <a [routerLink]="['/Sign-up']">Signup here</a></div>
+</div>
+</body>
+</html>
+

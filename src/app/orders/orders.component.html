@@ -7,9 +7,9 @@
         <div class="container px-3 clearfix" style="margin-top: 100px;">
             <mat-spinner mode="indeterminate" *ngIf="!dataLoaded"></mat-spinner>
             <!-- Shopping cart table -->
-            <div class="card">
+            <div class="card my-5" *ngFor="let order of userOrders">
                 <div class="card-header">
-                    <h2><strong>Shopping Cart</strong></h2>
+                    <h2><strong>#Order: {{order._id}}</strong></h2>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -25,7 +25,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let cartitem of cartData">
+                          <tr *ngFor="let cartitem of order.movies">
                             <td class="p-4">
                                 <div class="media align-items-center">
                                     <div class="row">
@@ -52,9 +52,7 @@
                     </div>
                 </div>
                 <div class="card-footer pt-2 d-inline-flex" style="height: 75px;">
-                    <button type="button" class="btn btn-lg btn-primary md-btn-flat" style="margin-right: 15px;" [routerLink]="['/Home']">Back to shopping</button>
-                    <button type="button" class="btn btn-lg btn-success" [disabled]="checkCart()" (click)="addOrder()">Place Order</button>
-                    <div class="pt-2" style="font-size: 25px; right:25px; position: absolute;">Total: <strong>${{totalprice}}</strong></div>
+                    <div class="pt-2" style="font-size: 25px; right:25px; position: absolute;">Total: <strong>${{order.totalPrice}}</strong></div>
                 </div>
             </div>
         </div>

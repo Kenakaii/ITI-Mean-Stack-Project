@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+        <title>Signup page</title>
+</head>
+<body class="bg-dark">
+<div class="signup-form" style="margin-top: 100px;">
+    <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+		<h2>Sign Up</h2>
+		<hr style="height:2px; background-color:#3d3a3a;">
+        <div class="form-group">
+        	<input type="text" ngModel class="form-control" name="userName" placeholder="Username" #userNameInput="ngModel" required />
+            <span class="text-danger" *ngIf="userNameInput.invalid">Username Required</span><br>
+        </div>
+        <div class="form-group">
+        	<input type="email" ngModel class="form-control" name="userEmail" placeholder="Email" #userEmailInput="ngModel" required email />
+            <span class="text-danger" *ngIf="userEmailInput.invalid">Invalid Email Format</span><br>
+        </div>
+		<div class="form-group">
+            <input type="password" ngModel class="form-control" name="userPassword" placeholder="Password" #userPasswordInput="ngModel" required />
+            <span class="text-danger" *ngIf="userPasswordInput.invalid">Password Required</span><br>
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="userNameInput.invalid || userEmailInput.invalid || userPasswordInput.invalid">Sign Up</button>
+        </div>
+    </form>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length!=0">{{errorMsg}}</div>
+	<div class="hint-text">Already have an account? <a [routerLink]="['/Log-in']">Login here</a></div>
+</div>
+</body>
+</html>

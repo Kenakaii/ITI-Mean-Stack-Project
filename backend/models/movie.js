@@ -8,8 +8,8 @@ let mongooseSchema = mongoose.Schema({
   description: String,
   show: Boolean,
   price:Number,
-  quantity: Number,
+  stock: Number,
   available: Boolean
 });
 
-module.exports=mongoose.model("Movies",mongooseSchema)
+module.exports=mongoose.model("Movies",mongooseSchema);

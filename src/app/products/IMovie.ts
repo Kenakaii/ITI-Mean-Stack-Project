@@ -8,6 +8,6 @@ export interface IMovie
   date: string,
   description: string,
   show: boolean,
-  quantity: number,
+  stock: number,
   available: boolean
 }
