@@ -17,27 +17,11 @@ router.get("/getAllMovies", function (req, res)
   if(currentPage && pageSize)
   {
     myQuery.skip((currentPage - 1) * pageSize).limit(pageSize);
-    // console.log(currentPage);
-    // console.log(pageSize);
   }
   myQuery
     .then(function (productsData)
     {
       moviesData = productsData;
-      // console.log(productsData);
-
-      // if (productsData.length == 0)
-      // {
-      //   // console.log(productsData);
-      //   res.send({
-      //     message: "No Products Founded",
-      //   });
-      // }
-      // else
-      // {
-      //   // console.log(productsData);
-      //   res.status(200).send(productsData);
-      // }
       return Movie.count();
     })
     .then(function(totalMovies)

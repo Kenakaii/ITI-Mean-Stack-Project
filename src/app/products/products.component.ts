@@ -43,6 +43,8 @@ export class ProductsComponent implements OnInit {
       next:(apiData)=>
       {
         this.AllMovies=apiData.moviesData;
+        console.log(apiData);
+        
       }
     });
   }

@@ -46,7 +46,7 @@ router.post('/signup', function(req, res)
       .catch(function(err)
       {
         res.statusCode = 400;
-        res.send({ error: 'Duplicate validation error' }); 
+        res.send({ error: 'Duplicate validation error' });
       })
   })
   .catch(function(err)
@@ -84,6 +84,13 @@ router.post('/login', function(req, res)
 
         let token = jwt.sign({email:loggedUser.email, uid:loggedUser._id}, 'MEAN_stack_GROUP_made_PROJECT_for_ITI',
         {expiresIn:'1h'});
+
+        currentUser =
+        {
+          _id: loggedUser._id.toString(),
+          username: loggedUser.username,
+          email: loggedUser.email,
+        }
 
         res.status(200).json({
             message:'Login Successful!',
