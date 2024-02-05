@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'Orders',component:OrdersComponent},
   {path:'Sign-up',component:SignupFormComponent},
   {path:'Log-in',component:LoginFormComponent},
-  {path:'',component:ProductsComponent},
+  {path:'',component:HomeComponent},
   {path:'**',component:PagenotfoundComponent},
 ];
 

@@ -6,16 +6,6 @@ var mongoose = require("mongoose");
 let userRoutes = require('./routes/users');
 let movieRoutes = require('./routes/movies');
 
-// var Movie = require("./models/movie");
-// var User = require("./models/user");
-
-// for dev purposes initially
-// var currentUser={
-//   _id:'64e22a67896cf3c54be9dfb5',
-//   username:'abood',
-//   email:'abood4@gmail.com',
-// }
-
 // Connect to database
 mongoose
   .connect(
