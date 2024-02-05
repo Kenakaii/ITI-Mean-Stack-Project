@@ -5,16 +5,18 @@ var Order = require("../models/order");
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
+var env = require("dotenv");
 
 // Express router
 
 let router = express.Router();
+env.config();
 
 // for dev purposes initially
 var currentUser={
-    _id:'64e3bb19a6c31bdff7376003',
-    username:'abood',
-    email:'abood4@gmail.com',
+    _id: process.env.CURRENT_ID,
+    username: process.env.CURRENT_USER,
+    email: process.env.CURRENT_EMAIL,
   }
 
 // /signup (post) to sign up new user
@@ -22,7 +24,7 @@ var currentUser={
 router.post('/signup', function(req, res)
 {
   var userdata = req.body;
-  bcrypt.hash(userdata.userPassword, 10)
+  bcrypt.hash(userdata.userPassword, parseInt(process.env.SALT_ROUNDS))
   .then(function(hashedpassword)
   {
     // console.log(hashedpassword);
@@ -82,7 +84,7 @@ router.post('/login', function(req, res)
             });
         }
 
-        let token = jwt.sign({email:loggedUser.email, uid:loggedUser._id}, 'MEAN_stack_GROUP_made_PROJECT_for_ITI',
+        let token = jwt.sign({email:loggedUser.email, uid:loggedUser._id}, process.env.SECRET_KEY,
         {expiresIn:'1h'});
 
         currentUser =
