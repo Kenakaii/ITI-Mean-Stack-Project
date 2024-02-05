@@ -2,14 +2,16 @@ var express = require("express");
 var app = express();
 var cors = require('cors');
 var mongoose = require("mongoose");
+var env = require("dotenv");
 
 let userRoutes = require('./routes/users');
 let movieRoutes = require('./routes/movies');
+env.config();
 
 // Connect to database
 mongoose
   .connect(
-    "mongodb+srv://abdelrahmanmoustafa5:ASDqwe123@cluster0.ay9xq27.mongodb.net/ProjectMooVees"
+    process.env.CONNECT_URL
   )
   .then(function ()
   {
